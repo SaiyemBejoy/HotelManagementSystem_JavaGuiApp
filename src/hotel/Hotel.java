@@ -18,6 +18,10 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
 
 public class Hotel {
 
@@ -29,6 +33,11 @@ public class Hotel {
 	private double secondNum;
 	private double result;
 	private String operations;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
 
 	/**
 	 * Launch the application.
@@ -87,314 +96,559 @@ public class Hotel {
 		resultField.setColumns(10);
 		
 		//==================ROW 1============================
-		
-				JButton btnBackspace = new JButton("\uF0E7");
-				btnBackspace.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-						if(resultField.getText().length()>0) {
-							String backspace =null;
-							
-							StringBuilder strB = new StringBuilder(resultField.getText());
-							strB.deleteCharAt(resultField.getText().length()-1);
-							backspace = strB.toString();
-							resultField.setText(backspace);
-						}
-						
-					}
-				});
-				btnBackspace.setFont(new Font("Wingdings", Font.BOLD, 30));
-				btnBackspace.setBounds(22, 90, 100, 100);
-				panel_3.add(btnBackspace);
+
+		JButton btnBackspace = new JButton("\uF0E7");
+		btnBackspace.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-				JButton btnClear = new JButton("C");
-				btnClear.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-						resultField.setText(null);
-						
-					}
-				});
-				btnClear.setFont(new Font("Tahoma", Font.BOLD, 40));
-				btnClear.setBounds(140, 90, 100, 100);
-				panel_3.add(btnClear);
-				
-				JButton btnModulus = new JButton("%");
-				btnModulus.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-						firstNum = Double.parseDouble(resultField.getText());
-						resultField.setText("");
-						operations = "%";
-						
-					}
-				});
-				btnModulus.setFont(new Font("Tahoma", Font.BOLD, 30));
-				btnModulus.setBounds(268, 90, 100, 100);
-				panel_3.add(btnModulus);
-				
-				JButton btnPlus = new JButton("+");
-				btnPlus.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-						firstNum = Double.parseDouble(resultField.getText());
-						resultField.setText("");
-						operations = "+";
-						
-					}
-				});
-				btnPlus.setFont(new Font("Tahoma", Font.BOLD, 40));
-				btnPlus.setBounds(386, 90, 100, 100);
-				panel_3.add(btnPlus);
-				
-				
-				//==================ROW 2============================
+				if(resultField.getText().length()>0) {
+					String backspace =null;
 					
-				JButton btn7 = new JButton("7");
-				btn7.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						String EnterValue = resultField.getText() + btn7.getText();
-						resultField.setText(EnterValue);
-					}
-				});
-				btn7.setFont(new Font("Tahoma", Font.BOLD, 40));
-				btn7.setBounds(22, 220, 100, 100);
-				panel_3.add(btn7);
+					StringBuilder strB = new StringBuilder(resultField.getText());
+					strB.deleteCharAt(resultField.getText().length()-1);
+					backspace = strB.toString();
+					resultField.setText(backspace);
+				}
 				
-				JButton btn8 = new JButton("8");
-				btn8.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						String EnterValue = resultField.getText() + btn8.getText();
-						resultField.setText(EnterValue);
-					}
-				});
-				btn8.setFont(new Font("Tahoma", Font.BOLD, 40));
-				btn8.setBounds(140, 220, 100, 100);
-				panel_3.add(btn8);
+			}
+		});
+		btnBackspace.setFont(new Font("Wingdings", Font.BOLD, 30));
+		btnBackspace.setBounds(22, 90, 100, 100);
+		panel_3.add(btnBackspace);
+		
+		JButton btnClear = new JButton("C");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-				JButton btn9 = new JButton("9");
-				btn9.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						String EnterValue = resultField.getText() + btn9.getText();
-						resultField.setText(EnterValue);
-					}
-				});
-				btn9.setFont(new Font("Tahoma", Font.BOLD, 40));
-				btn9.setBounds(268, 220, 100, 100);
-				panel_3.add(btn9);
+				resultField.setText(null);
 				
-				JButton btnMinus = new JButton("-");
-				btnMinus.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnClear.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnClear.setBounds(140, 90, 100, 100);
+		panel_3.add(btnClear);
+		
+		JButton btnModulus = new JButton("%");
+		btnModulus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				firstNum = Double.parseDouble(resultField.getText());
+				resultField.setText("");
+				operations = "%";
+				
+			}
+		});
+		btnModulus.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnModulus.setBounds(268, 90, 100, 100);
+		panel_3.add(btnModulus);
+		
+		JButton btnPlus = new JButton("+");
+		btnPlus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				firstNum = Double.parseDouble(resultField.getText());
+				resultField.setText("");
+				operations = "+";
+				
+			}
+		});
+		btnPlus.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnPlus.setBounds(386, 90, 100, 100);
+		panel_3.add(btnPlus);
+		
+		
+		//==================ROW 2============================
+			
+		JButton btn7 = new JButton("7");
+		btn7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String EnterValue = resultField.getText() + btn7.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn7.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn7.setBounds(22, 220, 100, 100);
+		panel_3.add(btn7);
+		
+		JButton btn8 = new JButton("8");
+		btn8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn8.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn8.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn8.setBounds(140, 220, 100, 100);
+		panel_3.add(btn8);
+		
+		JButton btn9 = new JButton("9");
+		btn9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn9.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn9.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn9.setBounds(268, 220, 100, 100);
+		panel_3.add(btn9);
+		
+		JButton btnMinus = new JButton("-");
+		btnMinus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				firstNum = Double.parseDouble(resultField.getText());
+				resultField.setText("");
+				operations = "-";
+				
+			}
+		});
+		btnMinus.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnMinus.setBounds(386, 220, 100, 100);
+		panel_3.add(btnMinus);
+		
 						
-						firstNum = Double.parseDouble(resultField.getText());
-						resultField.setText("");
-						operations = "-";
-						
-					}
-				});
-				btnMinus.setFont(new Font("Tahoma", Font.BOLD, 40));
-				btnMinus.setBounds(386, 220, 100, 100);
-				panel_3.add(btnMinus);
+		//==================ROW 3============================
+			
+		JButton btn4 = new JButton("4");
+		btn4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn4.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn4.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn4.setBounds(22, 353, 100, 100);
+		panel_3.add(btn4);
+		
+		JButton btn5 = new JButton("5");
+		btn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn5.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn5.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn5.setBounds(140, 353, 100, 100);
+		panel_3.add(btn5);
+		
+		JButton btn6 = new JButton("6");
+		btn6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn6.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn6.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn6.setBounds(268, 353, 100, 100);
+		panel_3.add(btn6);
+		
+		JButton btnMultiply = new JButton("X");
+		btnMultiply.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-								
-								//==================ROW 3============================
-									
-								JButton btn4 = new JButton("4");
-								btn4.addActionListener(new ActionListener() {
-									public void actionPerformed(ActionEvent e) {
-										String EnterValue = resultField.getText() + btn4.getText();
-										resultField.setText(EnterValue);
-									}
-								});
-								btn4.setFont(new Font("Tahoma", Font.BOLD, 40));
-								btn4.setBounds(22, 353, 100, 100);
-								panel_3.add(btn4);
-								
-								JButton btn5 = new JButton("5");
-								btn5.addActionListener(new ActionListener() {
-									public void actionPerformed(ActionEvent e) {
-										String EnterValue = resultField.getText() + btn5.getText();
-										resultField.setText(EnterValue);
-									}
-								});
-								btn5.setFont(new Font("Tahoma", Font.BOLD, 40));
-								btn5.setBounds(140, 353, 100, 100);
-								panel_3.add(btn5);
-								
-								JButton btn6 = new JButton("6");
-								btn6.addActionListener(new ActionListener() {
-									public void actionPerformed(ActionEvent e) {
-										String EnterValue = resultField.getText() + btn6.getText();
-										resultField.setText(EnterValue);
-									}
-								});
-								btn6.setFont(new Font("Tahoma", Font.BOLD, 40));
-								btn6.setBounds(268, 353, 100, 100);
-								panel_3.add(btn6);
-								
-								JButton btnMultiply = new JButton("X");
-								btnMultiply.addActionListener(new ActionListener() {
-									public void actionPerformed(ActionEvent e) {
-										
-										firstNum = Double.parseDouble(resultField.getText());
-										resultField.setText("");
-										operations = "X";
-										
-									}
-								});
-								btnMultiply.setFont(new Font("Tahoma", Font.BOLD, 40));
-								btnMultiply.setBounds(386, 353, 100, 100);
-								panel_3.add(btnMultiply);
-								
-												
-												//==================ROW 4============================
-													
-												JButton btn1 = new JButton("1");
-												btn1.addActionListener(new ActionListener() {
-													public void actionPerformed(ActionEvent e) {
-														String EnterValue = resultField.getText() + btn1.getText();
-														resultField.setText(EnterValue);
-													}
-												});
-												btn1.setFont(new Font("Tahoma", Font.BOLD, 40));
-												btn1.setBounds(22, 491, 100, 100);
-												panel_3.add(btn1);
-												
-												JButton btn2 = new JButton("2");
-												btn2.addActionListener(new ActionListener() {
-													public void actionPerformed(ActionEvent e) {
-														String EnterValue = resultField.getText() + btn2.getText();
-														resultField.setText(EnterValue);
-													}
-												});
-												btn2.setFont(new Font("Tahoma", Font.BOLD, 40));
-												btn2.setBounds(140, 491, 100, 100);
-												panel_3.add(btn2);
-												
-												JButton btn3 = new JButton("3");
-												btn3.addActionListener(new ActionListener() {
-													public void actionPerformed(ActionEvent e) {
-														String EnterValue = resultField.getText() + btn3.getText();
-														resultField.setText(EnterValue);
-													}
-												});
-												btn3.setFont(new Font("Tahoma", Font.BOLD, 40));
-												btn3.setBounds(268, 491, 100, 100);
-												panel_3.add(btn3);
-												
-												JButton btnDivide = new JButton("/");
-												btnDivide.addActionListener(new ActionListener() {
-													public void actionPerformed(ActionEvent e) {
-														
-														firstNum = Double.parseDouble(resultField.getText());
-														resultField.setText("");
-														operations = "/";
-														
-													}
-												});
-												btnDivide.setFont(new Font("Tahoma", Font.BOLD, 40));
-												btnDivide.setBounds(386, 491, 100, 100);
-												panel_3.add(btnDivide);
-												
+				firstNum = Double.parseDouble(resultField.getText());
+				resultField.setText("");
+				operations = "X";
+				
+			}
+		});
+		btnMultiply.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnMultiply.setBounds(386, 353, 100, 100);
+		panel_3.add(btnMultiply);
+						
+		
+		//==================ROW 4============================
+			
+		JButton btn1 = new JButton("1");
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn1.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn1.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn1.setBounds(22, 491, 100, 100);
+		panel_3.add(btn1);
+		
+		JButton btn2 = new JButton("2");
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn2.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn2.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn2.setBounds(140, 491, 100, 100);
+		panel_3.add(btn2);
+		
+		JButton btn3 = new JButton("3");
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn3.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn3.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn3.setBounds(268, 491, 100, 100);
+		panel_3.add(btn3);
+		
+		JButton btnDivide = new JButton("/");
+		btnDivide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				firstNum = Double.parseDouble(resultField.getText());
+				resultField.setText("");
+				operations = "/";
+				
+			}
+		});
+		btnDivide.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnDivide.setBounds(386, 491, 100, 100);
+		panel_3.add(btnDivide);
+		
 																
-																//==================ROW 5============================
-																	
-																JButton btn0 = new JButton("0");
-																btn0.addActionListener(new ActionListener() {
-																	public void actionPerformed(ActionEvent e) {
-																		String EnterValue = resultField.getText() + btn0.getText();
-																		resultField.setText(EnterValue);
-																	}
-																});
-																btn0.setFont(new Font("Tahoma", Font.BOLD, 40));
-																btn0.setBounds(22, 628, 100, 100);
-																panel_3.add(btn0);
-																
-																JButton btnDot = new JButton(".");
-																btnDot.addActionListener(new ActionListener() {
-																	public void actionPerformed(ActionEvent e) {
-																		String EnterValue = resultField.getText() + btnDot.getText();
-																		resultField.setText(EnterValue);
-																	}
-																});
-																btnDot.setFont(new Font("Tahoma", Font.BOLD, 40));
-																btnDot.setBounds(140, 628, 100, 100);
-																panel_3.add(btnDot);
-																
-																JButton btnPM = new JButton("\u00B1");
-																btnPM.addActionListener(new ActionListener() {
-																	public void actionPerformed(ActionEvent e) {
-																		
-																		double plusminus = 	Double.parseDouble(String.valueOf(resultField.getText()));
-																		plusminus = plusminus * (-1);
-																		resultField.setText(String.valueOf(plusminus));
-																		
-																	}
-																});
-																btnPM.setFont(new Font("Tahoma", Font.BOLD, 40));
-																btnPM.setBounds(268, 628, 100, 100);
-																panel_3.add(btnPM);
-																
-																JButton btnEqual = new JButton("=");
-																btnEqual.addActionListener(new ActionListener() {
-																	public void actionPerformed(ActionEvent arg0) {
-																		
-																		String answer;
-																		secondNum = Double.parseDouble(resultField.getText());
-																		
-																		if(operations=="+") {
-																			result = firstNum + secondNum;
-																			answer = String.format("%.2f", result);
-																			resultField.setText(answer);
-																		}else if(operations=="-") {
-																			result = firstNum - secondNum;
-																			answer = String.format("%.2f", result);
-																			resultField.setText(answer);
-																		}else if(operations=="X") {
-																			result = firstNum * secondNum;
-																			answer = String.format("%.2f", result);
-																			resultField.setText(answer);
-																		}else if(operations=="/") {
-																			result = firstNum / secondNum;
-																			answer = String.format("%.2f", result);
-																			resultField.setText(answer);
-																		}else if(operations=="%") {
-																			result = firstNum % secondNum;
-																			answer = String.format("%.2f", result);
-																			resultField.setText(answer);
-																		}
-																		
-																	}
-																});
-																btnEqual.setFont(new Font("Tahoma", Font.BOLD, 40));
-																btnEqual.setBounds(386, 628, 100, 100);
-																panel_3.add(btnEqual);
-																
-																
-																
-																//End of calculator
-																
-																
-																
-																
-																//Start of Receipt
-																
-																JPanel panel_4 = new JPanel();
-																tabbedPane.addTab("Receipt", null, panel_4, null);
-																panel_4.setLayout(null);
+		//==================ROW 5============================
+			
+		JButton btn0 = new JButton("0");
+		btn0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btn0.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btn0.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btn0.setBounds(22, 628, 100, 100);
+		panel_3.add(btn0);
+		
+		JButton btnDot = new JButton(".");
+		btnDot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String EnterValue = resultField.getText() + btnDot.getText();
+				resultField.setText(EnterValue);
+			}
+		});
+		btnDot.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnDot.setBounds(140, 628, 100, 100);
+		panel_3.add(btnDot);
+		
+		JButton btnPM = new JButton("\u00B1");
+		btnPM.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double plusminus = 	Double.parseDouble(String.valueOf(resultField.getText()));
+				plusminus = plusminus * (-1);
+				resultField.setText(String.valueOf(plusminus));
+				
+			}
+		});
+		btnPM.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnPM.setBounds(268, 628, 100, 100);
+		panel_3.add(btnPM);
+		
+		JButton btnEqual = new JButton("=");
+		btnEqual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String answer;
+				secondNum = Double.parseDouble(resultField.getText());
+				
+				if(operations=="+") {
+					result = firstNum + secondNum;
+					answer = String.format("%.2f", result);
+					resultField.setText(answer);
+				}else if(operations=="-") {
+					result = firstNum - secondNum;
+					answer = String.format("%.2f", result);
+					resultField.setText(answer);
+				}else if(operations=="X") {
+					result = firstNum * secondNum;
+					answer = String.format("%.2f", result);
+					resultField.setText(answer);
+				}else if(operations=="/") {
+					result = firstNum / secondNum;
+					answer = String.format("%.2f", result);
+					resultField.setText(answer);
+				}else if(operations=="%") {
+					result = firstNum % secondNum;
+					answer = String.format("%.2f", result);
+					resultField.setText(answer);
+				}
+				
+			}
+		});
+		btnEqual.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnEqual.setBounds(386, 628, 100, 100);
+		panel_3.add(btnEqual);
+		
+		
+		
+		//End of calculator
+		
+		
+		
+		
+		//Start of Receipt
+		
+		JPanel panel_4 = new JPanel();
+		tabbedPane.addTab("Receipt", null, panel_4, null);
+		panel_4.setLayout(null);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(10, 11, 490, 735);
+		panel_4.add(textArea);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 128), 10));
-		panel_1.setBounds(592, 166, 941, 355);
+		panel_1.setBounds(592, 166, 956, 405);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
+		JLabel lblNewLabel_1 = new JLabel("Menu");
+		lblNewLabel_1.setForeground(new Color(0, 206, 209));
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_1.setBounds(33, 32, 83, 37);
+		panel_1.add(lblNewLabel_1);
+		
+		JLabel lblQty = new JLabel("Qty");
+		lblQty.setForeground(new Color(0, 206, 209));
+		lblQty.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblQty.setBounds(263, 32, 83, 37);
+		panel_1.add(lblQty);
+		
+		JLabel lblPrice = new JLabel("Price $");
+		lblPrice.setForeground(new Color(0, 206, 209));
+		lblPrice.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblPrice.setBounds(379, 32, 110, 37);
+		panel_1.add(lblPrice);
+		
+		JLabel lblFriedRice = new JLabel("Fried RIce");
+		lblFriedRice.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblFriedRice.setBounds(33, 91, 128, 37);
+		panel_1.add(lblFriedRice);
+		
+		JLabel lblShawarma = new JLabel("Shawarma");
+		lblShawarma.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblShawarma.setBounds(33, 139, 128, 37);
+		panel_1.add(lblShawarma);
+		
+		JLabel lblChicken = new JLabel("Chicken");
+		lblChicken.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblChicken.setBounds(33, 187, 128, 37);
+		panel_1.add(lblChicken);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		textField.setBounds(236, 95, 110, 37);
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		textField_1.setColumns(10);
+		textField_1.setBounds(236, 139, 110, 37);
+		panel_1.add(textField_1);
+		
+		JLabel label = new JLabel("5.676");
+		label.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label.setBounds(397, 91, 128, 37);
+		panel_1.add(label);
+		
+		JLabel label_1 = new JLabel("3.987");
+		label_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_1.setBounds(397, 139, 128, 37);
+		panel_1.add(label_1);
+		
+		JLabel label_2 = new JLabel("11.452");
+		label_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_2.setBounds(397, 187, 128, 37);
+		panel_1.add(label_2);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Choose a drink", "Coka Cola", "7UP", "Pepsi"}));
+		comboBox.setBounds(33, 246, 185, 37);
+		panel_1.add(comboBox);
+		
+		JLabel label_3 = new JLabel("------");
+		label_3.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_3.setBounds(407, 246, 128, 37);
+		panel_1.add(label_3);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setForeground(new Color(255, 165, 0));
+		separator_2.setOrientation(SwingConstants.VERTICAL);
+		separator_2.setBounds(512, 36, 13, 343);
+		panel_1.add(separator_2);
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setForeground(new Color(0, 0, 128));
+		separator_3.setBounds(20, 293, 482, 2);
+		panel_1.add(separator_3);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Choose a room", "101", "201", "VIP"}));
+		comboBox_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		comboBox_1.setBounds(33, 306, 185, 37);
+		panel_1.add(comboBox_1);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Delivery");
+		chckbxNewCheckBox.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		chckbxNewCheckBox.setBounds(33, 350, 98, 29);
+		panel_1.add(chckbxNewCheckBox);
+		
+		JCheckBox chckbxTax = new JCheckBox("Tax");
+		chckbxTax.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		chckbxTax.setBounds(133, 350, 85, 29);
+		panel_1.add(chckbxTax);
+		
+		JButton btnNewButton = new JButton("Submit");
+		btnNewButton.setForeground(new Color(0, 128, 0));
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		btnNewButton.setBounds(361, 321, 128, 37);
+		panel_1.add(btnNewButton);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.setForeground(new Color(165, 42, 42));
+		btnReset.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		btnReset.setBounds(228, 321, 128, 37);
+		panel_1.add(btnReset);
+		
+		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		textField_2.setColumns(10);
+		textField_2.setBounds(236, 187, 110, 37);
+		panel_1.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		textField_3.setColumns(10);
+		textField_3.setBounds(236, 246, 110, 37);
+		panel_1.add(textField_3);
+		
+		JLabel lblCurrencyConverter = new JLabel("Currency Converter");
+		lblCurrencyConverter.setForeground(new Color(205, 92, 92));
+		lblCurrencyConverter.setFont(new Font("Times New Roman", Font.BOLD, 35));
+		lblCurrencyConverter.setBounds(570, 31, 319, 37);
+		panel_1.add(lblCurrencyConverter);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Country", "Bangladesh", "India", "China"}));
+		comboBox_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		comboBox_2.setBounds(590, 107, 261, 37);
+		panel_1.add(comboBox_2);
+		
+		textField_4 = new JTextField();
+		textField_4.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		textField_4.setColumns(10);
+		textField_4.setBounds(590, 176, 261, 48);
+		panel_1.add(textField_4);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_2.setBounds(585, 247, 266, 48);
+		panel_1.add(lblNewLabel_2);
+		
+		JButton button = new JButton("Reset");
+		button.setForeground(new Color(165, 42, 42));
+		button.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		button.setBounds(590, 321, 128, 37);
+		panel_1.add(button);
+		
+		JButton btnConvert = new JButton("Convert");
+		btnConvert.setForeground(new Color(0, 128, 0));
+		btnConvert.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		btnConvert.setBounds(723, 321, 128, 37);
+		panel_1.add(btnConvert);
+		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 128), 10));
-		panel_2.setBounds(592, 525, 941, 355);
+		panel_2.setBounds(592, 582, 956, 298);
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
+		
+		JLabel lblTotalCostOf = new JLabel("Total Cost of Meal");
+		lblTotalCostOf.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblTotalCostOf.setBounds(27, 26, 204, 37);
+		panel_2.add(lblTotalCostOf);
+		
+		JLabel lblTotalCostOf_1 = new JLabel("Total Cost of Drink");
+		lblTotalCostOf_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblTotalCostOf_1.setBounds(27, 89, 204, 37);
+		panel_2.add(lblTotalCostOf_1);
+		
+		JLabel lblCostOfDelivery = new JLabel("Cost of Delivery");
+		lblCostOfDelivery.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblCostOfDelivery.setBounds(27, 144, 204, 37);
+		panel_2.add(lblCostOfDelivery);
+		
+		JLabel lblCostOfRoom = new JLabel("Cost of Room");
+		lblCostOfRoom.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblCostOfRoom.setBounds(27, 204, 204, 37);
+		panel_2.add(lblCostOfRoom);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_4.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		label_4.setBounds(265, 26, 223, 37);
+		panel_2.add(label_4);
+		
+		JLabel label_5 = new JLabel("");
+		label_5.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_5.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		label_5.setBounds(265, 89, 223, 37);
+		panel_2.add(label_5);
+		
+		JLabel label_6 = new JLabel("");
+		label_6.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_6.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		label_6.setBounds(265, 144, 223, 37);
+		panel_2.add(label_6);
+		
+		JLabel label_7 = new JLabel("");
+		label_7.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_7.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		label_7.setBounds(265, 204, 223, 37);
+		panel_2.add(label_7);
+		
+		JSeparator separator_4 = new JSeparator();
+		separator_4.setOrientation(SwingConstants.VERTICAL);
+		separator_4.setForeground(new Color(255, 165, 0));
+		separator_4.setBounds(513, 25, 13, 248);
+		panel_2.add(separator_4);
+		
+		JLabel lblTax = new JLabel("Tax");
+		lblTax.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblTax.setBounds(548, 45, 59, 37);
+		panel_2.add(lblTax);
+		
+		JLabel lblSubTotal = new JLabel("Sub Total");
+		lblSubTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblSubTotal.setBounds(548, 123, 108, 37);
+		panel_2.add(lblSubTotal);
+		
+		JLabel lblGrandTotal = new JLabel("Grand Total");
+		lblGrandTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblGrandTotal.setBounds(547, 204, 133, 37);
+		panel_2.add(lblGrandTotal);
+		
+		JLabel label_8 = new JLabel("");
+		label_8.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_8.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		label_8.setBounds(690, 45, 223, 37);
+		panel_2.add(label_8);
+		
+		JLabel label_9 = new JLabel("");
+		label_9.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_9.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		label_9.setBounds(690, 123, 223, 37);
+		panel_2.add(label_9);
+		
+		JLabel label_10 = new JLabel("");
+		label_10.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		label_10.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		label_10.setBounds(690, 204, 223, 37);
+		panel_2.add(label_10);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(51, 11, 1482, 51);
@@ -468,7 +722,7 @@ public class Hotel {
 		menuBar.add(mnExit);
 		
 		JLabel lblNewLabel = new JLabel("Hotel Management System");
-		lblNewLabel.setBounds(643, 60, 923, 93);
+		lblNewLabel.setBounds(655, 62, 923, 93);
 		frame.getContentPane().add(lblNewLabel);
 		lblNewLabel.setForeground(new Color(123, 104, 238));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 75));
