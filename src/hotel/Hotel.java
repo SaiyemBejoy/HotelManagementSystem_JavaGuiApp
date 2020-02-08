@@ -33,11 +33,11 @@ public class Hotel {
 	private double secondNum;
 	private double result;
 	private String operations;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField txtFriedRice;
+	private JTextField txtShawarma;
+	private JTextField txtChicken;
+	private JTextField txtDrink;
+	private JTextField txtCurrencyAmount;
 
 	/**
 	 * Launch the application.
@@ -421,32 +421,32 @@ public class Hotel {
 		lblPrice.setBounds(379, 32, 110, 37);
 		panel_1.add(lblPrice);
 		
-		JLabel lblFriedRice = new JLabel("Fried RIce");
-		lblFriedRice.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblFriedRice.setBounds(33, 91, 128, 37);
-		panel_1.add(lblFriedRice);
+		JLabel btnFriedRice = new JLabel("Fried RIce");
+		btnFriedRice.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnFriedRice.setBounds(33, 91, 128, 37);
+		panel_1.add(btnFriedRice);
 		
-		JLabel lblShawarma = new JLabel("Shawarma");
-		lblShawarma.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblShawarma.setBounds(33, 139, 128, 37);
-		panel_1.add(lblShawarma);
+		JLabel btnShawarma = new JLabel("Shawarma");
+		btnShawarma.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnShawarma.setBounds(33, 139, 128, 37);
+		panel_1.add(btnShawarma);
 		
-		JLabel lblChicken = new JLabel("Chicken");
-		lblChicken.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblChicken.setBounds(33, 187, 128, 37);
-		panel_1.add(lblChicken);
+		JLabel btnChicken = new JLabel("Chicken");
+		btnChicken.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnChicken.setBounds(33, 187, 128, 37);
+		panel_1.add(btnChicken);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		textField.setBounds(236, 95, 110, 37);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		txtFriedRice = new JTextField();
+		txtFriedRice.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtFriedRice.setBounds(236, 95, 110, 37);
+		panel_1.add(txtFriedRice);
+		txtFriedRice.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		textField_1.setColumns(10);
-		textField_1.setBounds(236, 139, 110, 37);
-		panel_1.add(textField_1);
+		txtShawarma = new JTextField();
+		txtShawarma.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtShawarma.setColumns(10);
+		txtShawarma.setBounds(236, 139, 110, 37);
+		panel_1.add(txtShawarma);
 		
 		JLabel label = new JLabel("5.676");
 		label.setFont(new Font("Times New Roman", Font.PLAIN, 25));
@@ -463,11 +463,11 @@ public class Hotel {
 		label_2.setBounds(397, 187, 128, 37);
 		panel_1.add(label_2);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Choose a drink", "Coka Cola", "7UP", "Pepsi"}));
-		comboBox.setBounds(33, 246, 185, 37);
-		panel_1.add(comboBox);
+		JComboBox btnDrink = new JComboBox();
+		btnDrink.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnDrink.setModel(new DefaultComboBoxModel(new String[] {"Choose a drink", "Coka Cola", "7UP", "Pepsi"}));
+		btnDrink.setBounds(33, 246, 185, 37);
+		panel_1.add(btnDrink);
 		
 		JLabel label_3 = new JLabel("------");
 		label_3.setFont(new Font("Times New Roman", Font.PLAIN, 25));
@@ -485,45 +485,41 @@ public class Hotel {
 		separator_3.setBounds(20, 293, 482, 2);
 		panel_1.add(separator_3);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Choose a room", "101", "201", "VIP"}));
-		comboBox_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		comboBox_1.setBounds(33, 306, 185, 37);
-		panel_1.add(comboBox_1);
+		JComboBox btnRoom = new JComboBox();
+		btnRoom.setModel(new DefaultComboBoxModel(new String[] {"Choose a room", "101", "201", "VIP"}));
+		btnRoom.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnRoom.setBounds(33, 306, 185, 37);
+		panel_1.add(btnRoom);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Delivery");
-		chckbxNewCheckBox.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		chckbxNewCheckBox.setBounds(33, 350, 98, 29);
-		panel_1.add(chckbxNewCheckBox);
+		JCheckBox btnDelivery = new JCheckBox("Delivery");
+		btnDelivery.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnDelivery.setBounds(33, 350, 98, 29);
+		panel_1.add(btnDelivery);
 		
-		JCheckBox chckbxTax = new JCheckBox("Tax");
-		chckbxTax.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		chckbxTax.setBounds(133, 350, 85, 29);
-		panel_1.add(chckbxTax);
+		JCheckBox btnTax = new JCheckBox("Tax");
+		btnTax.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnTax.setBounds(133, 350, 85, 29);
+		panel_1.add(btnTax);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setForeground(new Color(0, 128, 0));
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		btnNewButton.setBounds(361, 321, 128, 37);
-		panel_1.add(btnNewButton);
 		
-		JButton btnReset = new JButton("Reset");
-		btnReset.setForeground(new Color(165, 42, 42));
-		btnReset.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		btnReset.setBounds(228, 321, 128, 37);
-		panel_1.add(btnReset);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		textField_2.setColumns(10);
-		textField_2.setBounds(236, 187, 110, 37);
-		panel_1.add(textField_2);
+		JButton btnResetFood = new JButton("Reset");
+		btnResetFood.setForeground(new Color(165, 42, 42));
+		btnResetFood.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		btnResetFood.setBounds(228, 321, 128, 37);
+		panel_1.add(btnResetFood);
 		
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		textField_3.setColumns(10);
-		textField_3.setBounds(236, 246, 110, 37);
-		panel_1.add(textField_3);
+		txtChicken = new JTextField();
+		txtChicken.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtChicken.setColumns(10);
+		txtChicken.setBounds(236, 187, 110, 37);
+		panel_1.add(txtChicken);
+		
+		txtDrink = new JTextField();
+		txtDrink.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtDrink.setColumns(10);
+		txtDrink.setBounds(236, 246, 110, 37);
+		panel_1.add(txtDrink);
 		
 		JLabel lblCurrencyConverter = new JLabel("Currency Converter");
 		lblCurrencyConverter.setForeground(new Color(205, 92, 92));
@@ -531,29 +527,29 @@ public class Hotel {
 		lblCurrencyConverter.setBounds(570, 31, 319, 37);
 		panel_1.add(lblCurrencyConverter);
 		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Country", "Bangladesh", "India", "China"}));
-		comboBox_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		comboBox_2.setBounds(590, 107, 261, 37);
-		panel_1.add(comboBox_2);
+		JComboBox txtCountry = new JComboBox();
+		txtCountry.setModel(new DefaultComboBoxModel(new String[] {"Country", "Bangladesh", "India", "China"}));
+		txtCountry.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtCountry.setBounds(590, 107, 261, 37);
+		panel_1.add(txtCountry);
 		
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		textField_4.setColumns(10);
-		textField_4.setBounds(590, 176, 261, 48);
-		panel_1.add(textField_4);
+		txtCurrencyAmount = new JTextField();
+		txtCurrencyAmount.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtCurrencyAmount.setColumns(10);
+		txtCurrencyAmount.setBounds(590, 176, 261, 48);
+		panel_1.add(txtCurrencyAmount);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblNewLabel_2.setBounds(585, 247, 266, 48);
-		panel_1.add(lblNewLabel_2);
+		JLabel txtCurrencyOutput = new JLabel("");
+		txtCurrencyOutput.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		txtCurrencyOutput.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtCurrencyOutput.setBounds(585, 247, 266, 48);
+		panel_1.add(txtCurrencyOutput);
 		
-		JButton button = new JButton("Reset");
-		button.setForeground(new Color(165, 42, 42));
-		button.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		button.setBounds(590, 321, 128, 37);
-		panel_1.add(button);
+		JButton btnResetConverter = new JButton("Reset");
+		btnResetConverter.setForeground(new Color(165, 42, 42));
+		btnResetConverter.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		btnResetConverter.setBounds(590, 321, 128, 37);
+		panel_1.add(btnResetConverter);
 		
 		JButton btnConvert = new JButton("Convert");
 		btnConvert.setForeground(new Color(0, 128, 0));
@@ -567,49 +563,84 @@ public class Hotel {
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
-		JLabel lblTotalCostOf = new JLabel("Total Cost of Meal");
-		lblTotalCostOf.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblTotalCostOf.setBounds(27, 26, 204, 37);
-		panel_2.add(lblTotalCostOf);
+		JLabel btnTotalCostMeal = new JLabel("Total Cost of Meal");
+		btnTotalCostMeal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnTotalCostMeal.setBounds(27, 26, 204, 37);
+		panel_2.add(btnTotalCostMeal);
 		
-		JLabel lblTotalCostOf_1 = new JLabel("Total Cost of Drink");
-		lblTotalCostOf_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblTotalCostOf_1.setBounds(27, 89, 204, 37);
-		panel_2.add(lblTotalCostOf_1);
+		JLabel btnTotalCostDrink = new JLabel("Total Cost of Drink");
+		btnTotalCostDrink.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnTotalCostDrink.setBounds(27, 89, 204, 37);
+		panel_2.add(btnTotalCostDrink);
 		
-		JLabel lblCostOfDelivery = new JLabel("Cost of Delivery");
-		lblCostOfDelivery.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblCostOfDelivery.setBounds(27, 144, 204, 37);
-		panel_2.add(lblCostOfDelivery);
+		JLabel btnDeliveryCost = new JLabel("Cost of Delivery");
+		btnDeliveryCost.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnDeliveryCost.setBounds(27, 144, 204, 37);
+		panel_2.add(btnDeliveryCost);
 		
-		JLabel lblCostOfRoom = new JLabel("Cost of Room");
-		lblCostOfRoom.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblCostOfRoom.setBounds(27, 204, 204, 37);
-		panel_2.add(lblCostOfRoom);
+		JLabel btnRoomCost = new JLabel("Cost of Room");
+		btnRoomCost.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnRoomCost.setBounds(27, 204, 204, 37);
+		panel_2.add(btnRoomCost);
 		
-		JLabel label_4 = new JLabel("");
-		label_4.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		label_4.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		label_4.setBounds(265, 26, 223, 37);
-		panel_2.add(label_4);
+		JLabel txtTotalCostMeal = new JLabel("");
+		txtTotalCostMeal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtTotalCostMeal.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		txtTotalCostMeal.setBounds(265, 26, 223, 37);
+		panel_2.add(txtTotalCostMeal);
 		
-		JLabel label_5 = new JLabel("");
-		label_5.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		label_5.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		label_5.setBounds(265, 89, 223, 37);
-		panel_2.add(label_5);
+		JLabel txtTotalCostDrink = new JLabel("");
+		txtTotalCostDrink.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtTotalCostDrink.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		txtTotalCostDrink.setBounds(265, 89, 223, 37);
+		panel_2.add(txtTotalCostDrink);
 		
-		JLabel label_6 = new JLabel("");
-		label_6.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		label_6.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		label_6.setBounds(265, 144, 223, 37);
-		panel_2.add(label_6);
 		
-		JLabel label_7 = new JLabel("");
-		label_7.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		label_7.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		label_7.setBounds(265, 204, 223, 37);
-		panel_2.add(label_7);
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//==============Drink Section ==============
+				double drinks = Double.parseDouble(txtDrink.getText());
+				double cokaCola = 1.256*drinks;
+				double up7 = 0.866*drinks;
+				double pepsi = 0.926*drinks;
+				
+				if(btnDrink.getSelectedItem().equals("Coka Cola")) {
+					String pCokaCola = String.format("%.3f", cokaCola);
+					txtTotalCostDrink.setText(pCokaCola);
+				}
+				if(btnDrink.getSelectedItem().equals("7UP")) {
+					String pUp7 = String.format("%.3f", up7);
+					txtTotalCostDrink.setText(pUp7);
+				}
+				if(btnDrink.getSelectedItem().equals("Pepsi")) {
+					String pPepsi = String.format("%.3f", pepsi);
+					txtTotalCostDrink.setText(pPepsi);
+				}
+				if(btnDrink.getSelectedItem().equals("Choose a drink")) {
+					txtTotalCostDrink.setText("0.00");
+				}
+				
+			}
+		});
+		btnSubmit.setForeground(new Color(0, 128, 0));
+		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		btnSubmit.setBounds(361, 321, 128, 37);
+		panel_1.add(btnSubmit);
+		
+		
+		JLabel txtDeliveryCost = new JLabel("");
+		txtDeliveryCost.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtDeliveryCost.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		txtDeliveryCost.setBounds(265, 144, 223, 37);
+		panel_2.add(txtDeliveryCost);
+		
+		JLabel txtRoomCost = new JLabel("");
+		txtRoomCost.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtRoomCost.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		txtRoomCost.setBounds(265, 204, 223, 37);
+		panel_2.add(txtRoomCost);
 		
 		JSeparator separator_4 = new JSeparator();
 		separator_4.setOrientation(SwingConstants.VERTICAL);
@@ -617,38 +648,38 @@ public class Hotel {
 		separator_4.setBounds(513, 25, 13, 248);
 		panel_2.add(separator_4);
 		
-		JLabel lblTax = new JLabel("Tax");
-		lblTax.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblTax.setBounds(548, 45, 59, 37);
-		panel_2.add(lblTax);
+		JLabel btnTax1 = new JLabel("Tax");
+		btnTax1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnTax1.setBounds(548, 45, 59, 37);
+		panel_2.add(btnTax1);
 		
-		JLabel lblSubTotal = new JLabel("Sub Total");
-		lblSubTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblSubTotal.setBounds(548, 123, 108, 37);
-		panel_2.add(lblSubTotal);
+		JLabel btnSubTotal = new JLabel("Sub Total");
+		btnSubTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnSubTotal.setBounds(548, 123, 108, 37);
+		panel_2.add(btnSubTotal);
 		
-		JLabel lblGrandTotal = new JLabel("Grand Total");
-		lblGrandTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblGrandTotal.setBounds(547, 204, 133, 37);
-		panel_2.add(lblGrandTotal);
+		JLabel btnGrandTotal = new JLabel("Grand Total");
+		btnGrandTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnGrandTotal.setBounds(547, 204, 133, 37);
+		panel_2.add(btnGrandTotal);
 		
-		JLabel label_8 = new JLabel("");
-		label_8.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		label_8.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		label_8.setBounds(690, 45, 223, 37);
-		panel_2.add(label_8);
+		JLabel txtTax = new JLabel("");
+		txtTax.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtTax.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		txtTax.setBounds(690, 45, 223, 37);
+		panel_2.add(txtTax);
 		
-		JLabel label_9 = new JLabel("");
-		label_9.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		label_9.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		label_9.setBounds(690, 123, 223, 37);
-		panel_2.add(label_9);
+		JLabel txtSubTotal = new JLabel("");
+		txtSubTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtSubTotal.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		txtSubTotal.setBounds(690, 123, 223, 37);
+		panel_2.add(txtSubTotal);
 		
-		JLabel label_10 = new JLabel("");
-		label_10.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		label_10.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		label_10.setBounds(690, 204, 223, 37);
-		panel_2.add(label_10);
+		JLabel txtGrandTotal = new JLabel("");
+		txtGrandTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		txtGrandTotal.setBorder(new LineBorder(new Color(0, 0, 128), 1));
+		txtGrandTotal.setBounds(690, 204, 223, 37);
+		panel_2.add(txtGrandTotal);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(51, 11, 1482, 51);
@@ -663,9 +694,9 @@ public class Hotel {
 		mnNew.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		mnFile.add(mnNew);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Receipt");
-		mntmNewMenuItem.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		mnNew.add(mntmNewMenuItem);
+		JMenuItem mntmReceipt = new JMenuItem("Receipt");
+		mntmReceipt.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		mnNew.add(mntmReceipt);
 		
 		JMenuItem mntmReset = new JMenuItem("Reset");
 		mntmReset.setForeground(new Color(220, 20, 60));
