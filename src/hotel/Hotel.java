@@ -794,6 +794,24 @@ public class Hotel {
 					String xTotal = String.format("%.3f", cTotal);
 					txtTax.setText(xTotal);
 				}
+				else {
+					txtTax.setText("Denied to pay tax");
+				}
+				
+				
+				//============= Total ===============
+				double pTotalTax = Double.parseDouble(txtTax.getText());
+				
+				String zTaxTotal = String.format("%.3f", pTotalTax);
+				txtTax.setText(zTaxTotal);
+				
+				double subTotal = (pTotalMeal + pTotalDrinks + pDelivery);
+				String pSubTotal = String.format("%.3f", subTotal);
+				txtSubTotal.setText(pSubTotal);
+				
+				double grandTotal = (pTotalMeal + pTotalDrinks + pDelivery + pTotalTax);
+				String pGrandTotal = String.format("%.3f", grandTotal);
+				txtGrandTotal.setText(pGrandTotal);
 				
 			}
 		});
