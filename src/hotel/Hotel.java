@@ -400,6 +400,7 @@ public class Hotel {
 		panel_4.setLayout(null);
 		
 		JTextArea receiptArea = new JTextArea();
+		receiptArea.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		receiptArea.setBounds(10, 11, 490, 735);
 		panel_4.add(receiptArea);
 		
@@ -569,15 +570,15 @@ public class Hotel {
 				double usa_Dollar = Double.parseDouble(txtCurrencyAmount.getText());
 				if(btnCountry.getSelectedItem().equals("Bangladesh")) {
 					String taka = String.format("%.2f", usa_Dollar*bangladeshi_Taka);
-					txtCurrencyOutput.setText(taka);
+					txtCurrencyOutput.setText(taka+" Taka");
 				}
 				if(btnCountry.getSelectedItem().equals("India")) {
 					String rupee = String.format("%.2f", usa_Dollar*indian_Rupee);
-					txtCurrencyOutput.setText(rupee);
+					txtCurrencyOutput.setText(rupee+" Rupee");
 				}
 				if(btnCountry.getSelectedItem().equals("China")) {
 					String yuan = String.format("%.2f", usa_Dollar*chinese_Yuan);
-					txtCurrencyOutput.setText(yuan);
+					txtCurrencyOutput.setText(yuan+" Yuan");
 				}
 				
 			}
@@ -690,7 +691,28 @@ public class Hotel {
 		mnNew.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		mnFile.add(mnNew);
 		
+		//}}}}}}}}}}}}}}}}}}}}}}}}}Receipt{{{{{{{{{{{{{{{{{{{{{{{{{
+		
 		JMenuItem mntmReceipt = new JMenuItem("Receipt");
+		mntmReceipt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Double invoice1 = Double.parseDouble(txtFriedRice.getText());
+				Double invoice2 = Double.parseDouble(txtShawarma.getText());
+				Double invoice3 = Double.parseDouble(txtChicken.getText());
+				Double invoice4 = Double.parseDouble(txtDrink.getText());
+				
+				receiptArea.append("\t\nHotel Management System:\n"
+									+ "\nFried Rice: \t\t" + invoice1
+									+ "\nShawarma: \t\t" + invoice2
+									+ "\nChicken: \t\t" + invoice3
+									+ "\n" + btnDrink.getSelectedItem() + " :\t\t" + invoice4
+									+ "\nGrand Total : \t\t" + txtGrandTotal.getText()
+									+ "\n\nThanks for your visit\tPlease come again."
+									);
+				
+			}
+		});
 		mntmReceipt.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		mnNew.add(mntmReceipt);
 		
