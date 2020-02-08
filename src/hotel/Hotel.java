@@ -393,9 +393,9 @@ public class Hotel {
 		tabbedPane.addTab("Receipt", null, panel_4, null);
 		panel_4.setLayout(null);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(10, 11, 490, 735);
-		panel_4.add(textArea);
+		JTextArea receiptArea = new JTextArea();
+		receiptArea.setBounds(10, 11, 490, 735);
+		panel_4.add(receiptArea);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 128), 10));
@@ -501,14 +501,6 @@ public class Hotel {
 		btnTax.setBounds(133, 350, 85, 29);
 		panel_1.add(btnTax);
 		
-		
-		
-		JButton btnResetFood = new JButton("Reset");
-		btnResetFood.setForeground(new Color(165, 42, 42));
-		btnResetFood.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		btnResetFood.setBounds(228, 321, 128, 37);
-		panel_1.add(btnResetFood);
-		
 		txtChicken = new JTextField();
 		txtChicken.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		txtChicken.setColumns(10);
@@ -527,11 +519,11 @@ public class Hotel {
 		lblCurrencyConverter.setBounds(570, 31, 319, 37);
 		panel_1.add(lblCurrencyConverter);
 		
-		JComboBox txtCountry = new JComboBox();
-		txtCountry.setModel(new DefaultComboBoxModel(new String[] {"Country", "Bangladesh", "India", "China"}));
-		txtCountry.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		txtCountry.setBounds(590, 107, 261, 37);
-		panel_1.add(txtCountry);
+		JComboBox btnCountry = new JComboBox();
+		btnCountry.setModel(new DefaultComboBoxModel(new String[] {"Country", "Bangladesh", "India", "China"}));
+		btnCountry.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnCountry.setBounds(590, 107, 261, 37);
+		panel_1.add(btnCountry);
 		
 		txtCurrencyAmount = new JTextField();
 		txtCurrencyAmount.setFont(new Font("Times New Roman", Font.PLAIN, 25));
@@ -664,7 +656,33 @@ public class Hotel {
 		mntmReceipt.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		mnNew.add(mntmReceipt);
 		
+		//**********************Menu's reset button********************
+		
 		JMenuItem mntmReset = new JMenuItem("Reset");
+		mntmReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				txtFriedRice.setText(null);
+				txtShawarma.setText(null);
+				txtChicken.setText(null);
+				txtDrink.setText(null);
+				txtTotalCostMeal.setText(null);
+				txtTotalCostDrink.setText(null);
+				txtDeliveryCost.setText(null);
+				txtRoomCost.setText(null);
+				txtTax.setText(null);
+				txtSubTotal.setText(null);
+				txtGrandTotal.setText(null);
+				txtCurrencyAmount.setText(null);
+				txtCurrencyOutput.setText(null);
+				resultField.setText(null);
+				btnDrink.setSelectedItem("Choose a drink");
+				btnRoom.setSelectedItem("Choose a room");
+				btnCountry.setSelectedItem("Country");
+				receiptArea.setText(null);
+				
+			}
+		});
 		mntmReset.setForeground(new Color(220, 20, 60));
 		mntmReset.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		mnNew.add(mntmReset);
@@ -680,7 +698,33 @@ public class Hotel {
 		JSeparator separator = new JSeparator();
 		mnFile.add(separator);
 		
+		
+		//****************Refresh button*********************
 		JMenuItem mntmRefresh = new JMenuItem("Refresh");
+		mntmRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				txtFriedRice.setText(null);
+				txtShawarma.setText(null);
+				txtChicken.setText(null);
+				txtDrink.setText(null);
+				txtTotalCostMeal.setText(null);
+				txtTotalCostDrink.setText(null);
+				txtDeliveryCost.setText(null);
+				txtRoomCost.setText(null);
+				txtTax.setText(null);
+				txtSubTotal.setText(null);
+				txtGrandTotal.setText(null);
+				txtCurrencyAmount.setText(null);
+				txtCurrencyOutput.setText(null);
+				resultField.setText(null);
+				btnDrink.setSelectedItem("Choose a drink");
+				btnRoom.setSelectedItem("Choose a room");
+				btnCountry.setSelectedItem("Country");
+				receiptArea.setText(null);
+				
+			}
+		});
 		mntmRefresh.setForeground(new Color(50, 205, 50));
 		mntmRefresh.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		mnFile.add(mntmRefresh);
@@ -689,6 +733,13 @@ public class Hotel {
 		mnFile.add(separator_1);
 		
 		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.exit(0);
+				
+			}
+		});
 		mntmExit.setForeground(new Color(255, 0, 0));
 		mntmExit.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		mnFile.add(mntmExit);
@@ -704,6 +755,30 @@ public class Hotel {
 		menuBar.add(mnTotal);
 		
 		JMenu mnReset = new JMenu("Reset");
+		mnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				txtFriedRice.setText(null);
+				txtShawarma.setText(null);
+				txtChicken.setText(null);
+				txtDrink.setText(null);
+				txtTotalCostMeal.setText(null);
+				txtTotalCostDrink.setText(null);
+				txtDeliveryCost.setText(null);
+				txtRoomCost.setText(null);
+				txtTax.setText(null);
+				txtSubTotal.setText(null);
+				txtGrandTotal.setText(null);
+				txtCurrencyAmount.setText(null);
+				txtCurrencyOutput.setText(null);
+				resultField.setText(null);
+				btnDrink.setSelectedItem("Choose a drink");
+				btnRoom.setSelectedItem("Choose a room");
+				btnCountry.setSelectedItem("Country");
+				receiptArea.setText(null);
+				
+			}
+		});
 		mnReset.setForeground(new Color(128, 0, 0));
 		mnReset.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		menuBar.add(mnReset);
@@ -714,6 +789,13 @@ public class Hotel {
 		menuBar.add(mnReceipt);
 		
 		JMenu mnExit = new JMenu("Exit");
+		mnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.exit(0);
+				
+			}
+		});
 		mnExit.setForeground(new Color(255, 0, 0));
 		mnExit.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		menuBar.add(mnExit);
@@ -819,5 +901,39 @@ public class Hotel {
 		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		btnSubmit.setBounds(361, 321, 128, 37);
 		panel_1.add(btnSubmit);
+		
+		
+		//*************************Food Reset***************************
+
+		
+		JButton btnResetFood = new JButton("Reset");
+		btnResetFood.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				txtFriedRice.setText(null);
+				txtShawarma.setText(null);
+				txtChicken.setText(null);
+				txtDrink.setText(null);
+				txtTotalCostMeal.setText(null);
+				txtTotalCostDrink.setText(null);
+				txtDeliveryCost.setText(null);
+				txtRoomCost.setText(null);
+				txtTax.setText(null);
+				txtSubTotal.setText(null);
+				txtGrandTotal.setText(null);
+				txtCurrencyAmount.setText(null);
+				txtCurrencyOutput.setText(null);
+				resultField.setText(null);
+				btnDrink.setSelectedItem("Choose a drink");
+				btnRoom.setSelectedItem("Choose a room");
+				btnCountry.setSelectedItem("Country");
+				receiptArea.setText(null);
+				
+			}
+		});
+		btnResetFood.setForeground(new Color(165, 42, 42));
+		btnResetFood.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		btnResetFood.setBounds(228, 321, 128, 37);
+		panel_1.add(btnResetFood);
 	}
 }
