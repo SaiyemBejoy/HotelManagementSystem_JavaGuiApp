@@ -596,40 +596,6 @@ public class Hotel {
 		panel_2.add(txtTotalCostDrink);
 		
 		
-		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				//==============Drink Section ==============
-				double drinks = Double.parseDouble(txtDrink.getText());
-				double cokaCola = 1.256*drinks;
-				double up7 = 0.866*drinks;
-				double pepsi = 0.926*drinks;
-				
-				if(btnDrink.getSelectedItem().equals("Coka Cola")) {
-					String pCokaCola = String.format("%.3f", cokaCola);
-					txtTotalCostDrink.setText(pCokaCola);
-				}
-				if(btnDrink.getSelectedItem().equals("7UP")) {
-					String pUp7 = String.format("%.3f", up7);
-					txtTotalCostDrink.setText(pUp7);
-				}
-				if(btnDrink.getSelectedItem().equals("Pepsi")) {
-					String pPepsi = String.format("%.3f", pepsi);
-					txtTotalCostDrink.setText(pPepsi);
-				}
-				if(btnDrink.getSelectedItem().equals("Choose a drink")) {
-					txtTotalCostDrink.setText("0.00");
-				}
-				
-			}
-		});
-		btnSubmit.setForeground(new Color(0, 128, 0));
-		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		btnSubmit.setBounds(361, 321, 128, 37);
-		panel_1.add(btnSubmit);
-		
-		
 		JLabel txtDeliveryCost = new JLabel("");
 		txtDeliveryCost.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		txtDeliveryCost.setBorder(new LineBorder(new Color(0, 0, 128), 1));
@@ -757,5 +723,61 @@ public class Hotel {
 		frame.getContentPane().add(lblNewLabel);
 		lblNewLabel.setForeground(new Color(123, 104, 238));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 75));
+		
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//================== Meal Section ===========
+				double friedRice = Double.parseDouble(txtFriedRice.getText());
+				double pFriedRice = 5.676;
+				double getFriedRice = (friedRice * pFriedRice);
+				
+				double shawarma = Double.parseDouble(txtShawarma.getText());
+				double pShawarma = 3.987;
+				double getShawarma = (shawarma * pShawarma);
+				
+				double chicken = Double.parseDouble(txtChicken.getText());
+				double pChicken = 9.452;
+				double getChicken = (chicken * pChicken);
+				
+				double getAllMeal = getFriedRice + getShawarma + getChicken;
+				
+				String totalMeal = String.format("%.3f", getAllMeal);
+				txtTotalCostMeal.setText(totalMeal);
+				
+
+				
+				//==============Drink Section ==============
+				double drinks = Double.parseDouble(txtDrink.getText());
+				double cokaCola = 1.256*drinks;
+				double up7 = 0.866*drinks;
+				double pepsi = 0.926*drinks;
+				
+				if(btnDrink.getSelectedItem().equals("Coka Cola")) {
+					String pCokaCola = String.format("%.3f", cokaCola);
+					txtTotalCostDrink.setText(pCokaCola);
+				}
+				if(btnDrink.getSelectedItem().equals("7UP")) {
+					String pUp7 = String.format("%.3f", up7);
+					txtTotalCostDrink.setText(pUp7);
+				}
+				if(btnDrink.getSelectedItem().equals("Pepsi")) {
+					String pPepsi = String.format("%.3f", pepsi);
+					txtTotalCostDrink.setText(pPepsi);
+				}
+				if(btnDrink.getSelectedItem().equals("Choose a drink")) {
+					String zero = "0.00";
+					txtTotalCostDrink.setText(zero);
+				}
+				
+				
+				
+			}
+		});
+		btnSubmit.setForeground(new Color(0, 128, 0));
+		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		btnSubmit.setBounds(361, 321, 128, 37);
+		panel_1.add(btnSubmit);
 	}
 }
