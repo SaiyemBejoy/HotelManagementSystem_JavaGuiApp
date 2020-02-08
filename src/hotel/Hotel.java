@@ -38,6 +38,12 @@ public class Hotel {
 	private JTextField txtChicken;
 	private JTextField txtDrink;
 	private JTextField txtCurrencyAmount;
+	
+	
+	double bangladeshi_Taka = 85.00;
+	double indian_Rupee = 65.02;
+	double chinese_Yuan = 6.29;
+	
 
 	/**
 	 * Launch the application.
@@ -526,24 +532,56 @@ public class Hotel {
 		panel_1.add(btnCountry);
 		
 		txtCurrencyAmount = new JTextField();
+		txtCurrencyAmount.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCurrencyAmount.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		txtCurrencyAmount.setColumns(10);
 		txtCurrencyAmount.setBounds(590, 176, 261, 48);
 		panel_1.add(txtCurrencyAmount);
 		
 		JLabel txtCurrencyOutput = new JLabel("");
+		txtCurrencyOutput.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCurrencyOutput.setBorder(new LineBorder(new Color(0, 0, 128), 1));
 		txtCurrencyOutput.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		txtCurrencyOutput.setBounds(585, 247, 266, 48);
 		panel_1.add(txtCurrencyOutput);
 		
 		JButton btnResetConverter = new JButton("Reset");
+		btnResetConverter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				txtCurrencyAmount.setText(null);
+				txtCurrencyOutput.setText(null);
+				btnCountry.setSelectedItem("Country");
+				
+			}
+		});
 		btnResetConverter.setForeground(new Color(165, 42, 42));
 		btnResetConverter.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		btnResetConverter.setBounds(590, 321, 128, 37);
 		panel_1.add(btnResetConverter);
 		
+		
+		//------------------------CONVERT-------------------
 		JButton btnConvert = new JButton("Convert");
+		btnConvert.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double usa_Dollar = Double.parseDouble(txtCurrencyAmount.getText());
+				if(btnCountry.getSelectedItem().equals("Bangladesh")) {
+					String taka = String.format("%.2f", usa_Dollar*bangladeshi_Taka);
+					txtCurrencyOutput.setText(taka);
+				}
+				if(btnCountry.getSelectedItem().equals("India")) {
+					String rupee = String.format("%.2f", usa_Dollar*indian_Rupee);
+					txtCurrencyOutput.setText(rupee);
+				}
+				if(btnCountry.getSelectedItem().equals("China")) {
+					String yuan = String.format("%.2f", usa_Dollar*chinese_Yuan);
+					txtCurrencyOutput.setText(yuan);
+				}
+				
+			}
+		});
 		btnConvert.setForeground(new Color(0, 128, 0));
 		btnConvert.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		btnConvert.setBounds(723, 321, 128, 37);
