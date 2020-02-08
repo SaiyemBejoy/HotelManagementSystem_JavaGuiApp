@@ -772,6 +772,28 @@ public class Hotel {
 				}
 				
 				
+				//========== Delivery ==========
+				double cDelivery = 4.50;
+				if(btnDelivery.isSelected()) {
+					String pDelivery = String.format("%.3f", cDelivery);
+					txtDeliveryCost.setText(pDelivery);
+				}
+				else {
+					txtDeliveryCost.setText("0.00");
+				}
+				
+				
+				//============ Tax ==============
+				double pTotalMeal = Double.parseDouble(txtTotalCostMeal.getText());
+				double pTotalDrinks = Double.parseDouble(txtTotalCostMeal.getText());
+				double pDelivery = Double.parseDouble(txtDeliveryCost.getText());
+				
+				double cTotal = (pTotalMeal+pTotalDrinks+pDelivery)/100;
+				
+				if(btnTax.isSelected()) {
+					String xTotal = String.format("%.3f", cTotal);
+					txtTax.setText(xTotal);
+				}
 				
 			}
 		});
