@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
@@ -60,12 +61,50 @@ public class Hotel {
 			}
 		});
 	}
+	
+	
+	//**************DATE TIME****************
+	/*
+	
+	public void datetime()
+	{
+		Thread datetime = new Thread();
+		{
+			public void run()
+			{
+				try
+				{
+					for(;;)
+					{
+						Calender cal = new GregorianCalendar();
+						int day = cal.get(Calender.DAY_OF_MONTH);
+						int month = cal.get(Calender.MONTH);
+						int year = cal.get(Calender.YEAR);
+						
+						int second = cal.get(Calender.SECOND);
+						int minute = cal.get(Calender.MINUTE);
+						int hour = cal.get(Calender.HOUR);
+						
+						lblClock.setTxt("Time: " +hour+":"+minute+":"+second+"      "+year+"/"+month+"/"+day);
+						
+						sleep(1000);
+					}
+				}
+				catch(Exception e)
+				{
+					
+				}
+			}
+		}
+	}
+	*/
 
 	/**
 	 * Create the application.
 	 */
 	public Hotel() {
 		initialize();
+		//datetime();
 	}
 
 	/**
@@ -647,12 +686,12 @@ public class Hotel {
 		
 		JLabel btnTax1 = new JLabel("Tax");
 		btnTax1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		btnTax1.setBounds(548, 45, 59, 37);
+		btnTax1.setBounds(548, 89, 59, 37);
 		panel_2.add(btnTax1);
 		
 		JLabel btnSubTotal = new JLabel("Sub Total");
 		btnSubTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		btnSubTotal.setBounds(548, 123, 108, 37);
+		btnSubTotal.setBounds(548, 144, 108, 37);
 		panel_2.add(btnSubTotal);
 		
 		JLabel btnGrandTotal = new JLabel("Grand Total");
@@ -663,13 +702,13 @@ public class Hotel {
 		JLabel txtTax = new JLabel("");
 		txtTax.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		txtTax.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		txtTax.setBounds(690, 45, 223, 37);
+		txtTax.setBounds(690, 89, 223, 37);
 		panel_2.add(txtTax);
 		
 		JLabel txtSubTotal = new JLabel("");
 		txtSubTotal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		txtSubTotal.setBorder(new LineBorder(new Color(0, 0, 128), 1));
-		txtSubTotal.setBounds(690, 123, 223, 37);
+		txtSubTotal.setBounds(690, 144, 223, 37);
 		panel_2.add(txtSubTotal);
 		
 		JLabel txtGrandTotal = new JLabel("");
@@ -677,6 +716,11 @@ public class Hotel {
 		txtGrandTotal.setBorder(new LineBorder(new Color(0, 0, 128), 1));
 		txtGrandTotal.setBounds(690, 204, 223, 37);
 		panel_2.add(txtGrandTotal);
+		
+		JLabel lblClock = new JLabel("");
+		lblClock.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblClock.setBounds(548, 26, 359, 47);
+		panel_2.add(lblClock);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(51, 11, 1482, 51);
@@ -914,6 +958,28 @@ public class Hotel {
 				}
 				
 				
+				//==============ROOM Section ==============
+				double rVIP = 100;
+				double r101 = 50;
+				double r201 = 80;
+				
+				if(btnRoom.getSelectedItem().equals("VIP")) {
+					String pVIP = String.format("%.3f", rVIP);
+					txtRoomCost.setText(pVIP);
+				}
+				if(btnRoom.getSelectedItem().equals("201")) {
+					String p201 = String.format("%.3f", r201);
+					txtRoomCost.setText(p201);
+				}
+				if(btnRoom.getSelectedItem().equals("101")) {
+					String p101 = String.format("%.3f", r101);
+					txtRoomCost.setText(p101);
+				}
+				if(btnRoom.getSelectedItem().equals("Choose a room")) {
+					txtRoomCost.setText("0.00");
+				}
+				
+				
 				//========== Delivery ==========
 				double cDelivery = 4.50;
 				if(btnDelivery.isSelected()) {
@@ -929,15 +995,16 @@ public class Hotel {
 				double pTotalMeal = Double.parseDouble(txtTotalCostMeal.getText());
 				double pTotalDrinks = Double.parseDouble(txtTotalCostMeal.getText());
 				double pDelivery = Double.parseDouble(txtDeliveryCost.getText());
+				double pRoom = Double.parseDouble(txtRoomCost.getText());
 				
-				double cTotal = (pTotalMeal+pTotalDrinks+pDelivery)/100;
+				double cTotal = (pTotalMeal+pTotalDrinks+pDelivery+pRoom)/100;
 				
 				if(btnTax.isSelected()) {
 					String xTotal = String.format("%.3f", cTotal);
 					txtTax.setText(xTotal);
 				}
 				else {
-					txtTax.setText("Denied to pay tax");
+					txtTax.setText("0.00");
 				}
 				
 				
@@ -947,11 +1014,11 @@ public class Hotel {
 				String zTaxTotal = String.format("%.3f", pTotalTax);
 				txtTax.setText(zTaxTotal);
 				
-				double subTotal = (pTotalMeal + pTotalDrinks + pDelivery);
+				double subTotal = (pTotalMeal + pTotalDrinks + pDelivery +pRoom);
 				String pSubTotal = String.format("%.3f", subTotal);
 				txtSubTotal.setText(pSubTotal);
 				
-				double grandTotal = (pTotalMeal + pTotalDrinks + pDelivery + pTotalTax);
+				double grandTotal = (pTotalMeal + pTotalDrinks + pDelivery + pRoom+ pTotalTax);
 				String pGrandTotal = String.format("%.3f", grandTotal);
 				txtGrandTotal.setText(pGrandTotal);
 				
